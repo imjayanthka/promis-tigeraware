@@ -7,10 +7,11 @@ var param = process.argv[2];
  
 console.log('Param: ' + param);
 var axios = require('axios');
+var config = require('./config/config');
 var fs = require('fs');
 var obj = JSON.parse(fs.readFileSync('./surveyList.json', 'utf8'));
-var regID = 'C8E55D01-313E-471D-B0F0-927B2DFE9EE6';
-var token = '4BA80B91-E189-4906-9266-87A78086FB7B';
+var regID = config.regID;
+var token = config.token;
 var authToken = new Buffer(regID+':'+token, "ascii").toString('base64');
 
 console.log(obj.Form.length)
